@@ -1,9 +1,9 @@
-
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import bodyParser from 'body-parser';
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config'
+import dotenv from 'dotenv'
+
 dotenv.config();
 const app = express();
 const port = 3000;
@@ -13,9 +13,7 @@ app.use(bodyParser.json());
 
 const genAI = new GoogleGenerativeAI(process.env.key);
 
-
 const responseSchemaSteps ={
- 
     "type": "object",
     "properties": {
       "name": {
@@ -90,19 +88,38 @@ const responseSchemaSteps ={
     "required": ["name", "children"]
   };
   
+const safetySettings = [
+  {
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+    threshold: HarmBlockThreshold.BLOCK_NONE,
+  },
+];
 
-let model = genAI.getGenerativeModel({
-  model: "gemini-1.5-pro",
- 
+const model = genAI.getGenerativeModel({ 
+  model: "gemini-1.5-pro", 
+  safetySettings,
   generationConfig: {
     responseMimeType: "application/json",
-    responseSchema:responseSchemaSteps,
+    responseSchema: responseSchemaSteps,
   }
 });
-let request = 0;
 
-let oldprompt =null
-let  treeData
+let request = 0;
+let oldprompt = null;
+let treeData;
+
 app.post('/api/tree-data', async (req, res) => {
     try {
       const { frontendinput } = req.body;
@@ -113,11 +130,9 @@ app.post('/api/tree-data', async (req, res) => {
   
       const prompt = `give me all the steps required to ${frontendinput} `;
     
-      
-        
       if ( (oldprompt !== prompt || request==0) && request < 3) {
         let result = await model.generateContent(prompt);
-          treeData = result.response.text();
+        treeData = result.response.text();
         console.log("treeData: " + treeData);
         request++;
         oldprompt = prompt;
@@ -137,7 +152,6 @@ app.post('/api/tree-data', async (req, res) => {
     }
   });
   
-
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
