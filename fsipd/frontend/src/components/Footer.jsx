@@ -19,7 +19,7 @@ const Footer = () => {
             <ul className="list-none mb-4">
               <li className="mb-2"><a href="education" className="hover:text-blue-400 transition-colors">Education</a></li>
               <li className="mb-2"><a href="#counseling" className="hover:text-blue-400 transition-colors">Counseling</a></li>
-              <li className="mb-2"><a href="#mental-health" className="hover:text-blue-400 transition-colors">Mental Health AI Chatbot</a></li>
+              <li className="mb-2"><a href="#mental-health" className="hover:text-blue-400 transition-colors">ai chatbot AI Chatbot</a></li>
             </ul>
            
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
           
           <div className="w-full md:w-full text-center md:text-left mt-6">
             <h3 className="text-xl font-bold text-white mb-3">About Us</h3>
-            <p>Impower Hub is a project dedicated to providing comprehensive guidance and support for education, career development, and mental health.</p>
+            <p>Impower Hub is a project dedicated to providing comprehensive guidance and support for education, career development, and ai chatbot.</p>
           </div>
         </div>
         

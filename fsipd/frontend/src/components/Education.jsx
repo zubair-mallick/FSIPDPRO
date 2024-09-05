@@ -1,6 +1,7 @@
 import React from 'react';
 import AiCarrerSugestor from './AiCarrerSugestor';
 import TreeDiagram from './roadmap/TreeDiagram'
+import EducationalRoadmapMaker from './roadmap/EducationalRoadmapMaker';
 const Education = () => {
   return (
     <div id='education' className="p-8  min-h-screen">
@@ -22,7 +23,7 @@ const Education = () => {
       </ul>
       <AiCarrerSugestor />
 
-      <TreeDiagram/>
+      <EducationalRoadmapMaker/>
     </div>
   );
 };

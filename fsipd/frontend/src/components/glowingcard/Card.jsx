@@ -47,8 +47,8 @@ const Cards = () => {
     },
     {
       id: 3,
-      title: "Mental Health",
-      description: "Find mental health resources and support.",
+      title: "ai chatbot",
+      description: "Find ai chatbot resources and support.",
       image: mental,
       link: "#mental-health"
     }

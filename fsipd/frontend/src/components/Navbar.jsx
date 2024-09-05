@@ -51,7 +51,7 @@ const Navbar = () => {
               href="#mental-health"
               className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
             >
-              Mental Health
+              ai chatbot
             </a>
           </div>
 
@@ -106,7 +106,7 @@ const Navbar = () => {
                 href="#mental-health"
                 className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
               >
-                Mental Health
+                ai chatbot
               </a>
             </div>
           </div>
