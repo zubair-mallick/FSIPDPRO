@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ title, desc, link }) => {
   return (
     <div className="flex flex-col max-w-md p-6 my-8 overflow-hidden text-left text-white transition-transform duration-75 transform bg-gray-900 rounded-lg shadow-glow justify-evenly">
       <h3 className="mb-2 text-xl font-semibold">{title}</h3>
       <p>{desc}</p>
-      <button className="flex items-center self-end justify-center w-32 max-w-md mt-4 mr-6 gradient-btn">
+      <Link
+        to={link}
+        className="flex items-center self-end justify-center w-32 max-w-md mt-4 mr-6 gradient-btn"
+      >
         Try it
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +24,7 @@ const Card = ({ title, desc, link }) => {
             d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
           />
         </svg>
-      </button>
+      </Link>
     </div>
   );
 };

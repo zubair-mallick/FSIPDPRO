@@ -9,6 +9,18 @@ body {
 html {
   scroll-behavior: smooth;
 }
+@keyframes rotateInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+
 
 @layer base {
   .title {

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/Accordation";
 // Function to simulate word-by-word animation
 const useWordAnimation = (text, delay) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -117,24 +122,27 @@ const CareerSuggestionerAI = () => {
 
   return (
     <div className="p-6">
-      <h1 className="mb-6 text-3xl font-bold text-white">
-        Career Suggestioner AI
-      </h1>
-      <form onSubmit={handleSubmit} className="mb-6">
+      <h1 className="max-w-4xl mb-8 title">AI Career Suggestion </h1>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-4xl mx-auto mb-6 text-left"
+      >
         <PromptBox
           value={interests}
           onChange={(e) => setInterests(e.target.value)}
         />
         {error && <p className="mb-4 text-red-500">{error}</p>}
-        <GradientButton type="submit">Get Career Suggestions</GradientButton>
-        {suggestions.length > 0 && !loading && (
-          <button
-            onClick={handleReset}
-            className="px-4 py-2 ml-4 font-bold text-white transition-transform duration-300 bg-gray-700 rounded-lg hover:scale-105"
-          >
-            Reset
-          </button>
-        )}
+        <div className="flex">
+          <GradientButton type="submit">Get Career Suggestions</GradientButton>
+          {suggestions.length > 0 && !loading && (
+            <button
+              onClick={handleReset}
+              className="px-4 py-2 ml-4 font-bold text-white transition-transform duration-300 bg-gray-700 rounded-lg hover:scale-105"
+            >
+              Reset
+            </button>
+          )}
+        </div>
       </form>
 
       {loading && <Spinner />}
@@ -151,6 +159,57 @@ const CareerSuggestionerAI = () => {
           ))}
         </div>
       )}
+
+      {/* faq */}
+      <div className="mt-10">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full max-w-3xl mx-auto text-left"
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>What is the Education Section?</AccordionTrigger>
+            <AccordionContent>
+              <p className="text-white">
+                The{" "}
+                <span className="font-semibold text-white">
+                  Education Section
+                </span>{" "}
+                provides comprehensive guidance to help you navigate your
+                educational journey. Whether you're seeking to explore career
+                paths or refine your academic focus, our tools are designed to
+                support you in making informed decisions.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger>
+              How Does the Career Suggestor Work?
+            </AccordionTrigger>
+            <AccordionContent>
+              <p className="text-zinc-400">
+                The <span className="font-semibold">Career Suggestor</span>{" "}
+                helps you discover potential career paths tailored to your
+                interests and existing knowledge. Input your details to receive
+                personalized career suggestions that align with your
+                aspirations.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger>
+              What is the carrer sugestor ai?
+            </AccordionTrigger>
+            <AccordionContent>
+              <p className="text-zinc-400">
+              It is a tool to assist you in planning your educational journey. It will help you map out your academic goals and strategies based on your career objectives and interests.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </div>
   );
 };

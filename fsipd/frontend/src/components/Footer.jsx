@@ -23,7 +23,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mb-2">
-                <a href="/councellinng" className="hover:text-blue-400 transition-colors">
+                <a href="/counseling" className="hover:text-blue-400 transition-colors">
                   Counseling
                 </a>
               </li>
@@ -87,7 +87,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mb-2">
-                <a href="/councellinng" className="hover:text-blue-400 transition-colors">
+                <a href="/counseling" className="hover:text-blue-400 transition-colors">
                   Resource Finder
                 </a>
               </li>

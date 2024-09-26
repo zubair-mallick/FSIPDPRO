@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Transition } from '@headlessui/react';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
+import { useState, useEffect } from "react";
+import { Transition } from "@headlessui/react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,20 +15,20 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolling ? 'bg-black shadow-lg' : 'bg-transparent'
+        scrolling ? "bg-black shadow-lg" : "bg-transparent"
       } text-white border-b border-gray-800`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <h1 className="text-xl font-bold">IMPOWERHUB</h1>
@@ -38,36 +38,36 @@ const Navbar = () => {
             {/* Updated Links */}
             <Link
               to="/education"
-              className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700"
             >
               Education
             </Link>
             <Link
-              to="/councellinng"
-              className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              to="/counseling"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700"
             >
               Counseling
             </Link>
             <Link
               to="/chatbot"
-              className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-gray-700"
             >
               AI Chatbot
             </Link>
           </div>
 
-          <div className="-mr-2 flex md:hidden">
+          <div className="flex -mr-2 md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+              className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
               {!isOpen ? (
                 <svg
-                  className="block h-6 w-6"
+                  className="block w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -83,7 +83,7 @@ const Navbar = () => {
                 </svg>
               ) : (
                 <svg
-                  className="block h-6 w-6"
+                  className="block w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -118,19 +118,19 @@ const Navbar = () => {
               {/* Updated Links for Mobile */}
               <Link
                 to="/education"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-base font-medium rounded-md hover:bg-gray-700"
               >
                 Education
               </Link>
               <Link
-                to="/councellinng"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                to="/counseling"
+                className="block px-3 py-2 text-base font-medium rounded-md hover:bg-gray-700"
               >
                 Counseling
               </Link>
               <Link
                 to="/chatbot"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700"
+                className="block px-3 py-2 text-base font-medium rounded-md hover:bg-gray-700"
               >
                 AI Chatbot
               </Link>

@@ -72,106 +72,108 @@ const EducationalRoadmapMaker = () => {
   };
 
   return (
-    <div className="">
-      <div className="mb-6 ">
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>
-              What is the AI Roadmap Generator?
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-white">
-                The{" "}
-                <span className="font-semibold text-white">
-                  AI Roadmap Generator
-                </span>{" "}
-                is a powerful tool designed to help you navigate your
-                educational and career journey with ease. By providing a clear,
-                step-by-step roadmap, this tool simplifies complex topics and
-                breaks down hard-to-understand concepts into manageable steps.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
+    <div className="p-6 ">
+      <h1 className="title max-w-4xl mb-8 ">AI Roadmap Maker</h1>
 
-          <AccordionItem value="item-2">
-            <AccordionTrigger>
-              Why Use the AI Roadmap Generator?
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-zinc-400">
-                Whether you’re just starting out or looking to advance your
-                skills, the{" "}
-                <span className="font-semibold ">AI Roadmap Generator</span> can
-                provide tailored guidance based on your current knowledge and
-                goals. It helps you identify the{" "}
-                <span className="font-semibold ">skills</span> you need to
-                develop and the{" "}
-                <span className="font-semibold ">resources</span> available to
-                achieve your objectives.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3">
-            <AccordionTrigger>
-              How Does It Simplify Complexity?
-            </AccordionTrigger>
-            <AccordionContent>
-              <p className="text-zinc-400">
-                The generator leverages{" "}
-                <span className="font-semibold">AI</span> to analyze your inputs
-                and create a personalized roadmap. It breaks down complex
-                subjects into digestible parts, making it easier for you to
-                follow and understand the steps required to reach your goals.
-              </p>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
-
-      <div className="p-6">
-        <h1 className="mb-6 text-3xl font-bold text-white">Roadmap Maker AI</h1>
-
-        <form onSubmit={handleSubmit} className="mb-6">
-          <textarea
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter what sort of roadmap do you require. It can be of any type and can be very personalized or broad (career, technology, step-by-step process, tech stack, etc.)"
-            className="w-full p-4 text-white transition-all duration-300 bg-gray-800 border-2 border-gray-600 rounded-lg shadow-md h-22 focus:outline-none focus:border-blue-500"
-          />
-          <div className="flex mt-4 space-x-4">
-            <button
-              type="submit"
-              className="px-4 py-2 font-bold text-white transition-transform duration-300 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105"
-            >
-              {loading ? (
-                <div className="flex items-center space-x-2">
-                  <span className="w-5 h-5 border-t-2 border-b-2 border-white rounded-full loader animate-spin"></span>
-                  <span>Loading...</span>
-                </div>
-              ) : (
-                "Generate Roadmap"
-              )}
-            </button>
-            {roadmapData && (
-              <button
-                type="button"
-                onClick={handleReset}
-                className="px-4 py-2 font-bold text-white transition-transform duration-300 bg-gray-700 rounded-lg hover:scale-105"
-              >
-                Reset
-              </button>
+      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto mb-6 text-left">
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter what sort of roadmap do you require. It can be of any type and can be very personalized or broad (career, technology, step-by-step process, tech stack, etc.)"
+          className="w-full p-4 text-white transition-all duration-300 bg-gray-800 border-2 border-gray-600 rounded-lg shadow-md h-22 focus:outline-none focus:border-blue-500"
+        />
+        <div className="flex mt-4 space-x-4">
+          <button
+            type="submit"
+            className="px-4 py-2 font-bold text-white transition-transform duration-300 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105"
+          >
+            {loading ? (
+              <div className="flex items-center space-x-2">
+                <span className="w-5 h-5 border-t-2 border-b-2 border-white rounded-full loader animate-spin"></span>
+                <span>Loading...</span>
+              </div>
+            ) : (
+              "Generate Roadmap"
             )}
-          </div>
-        </form>
+          </button>
+          {roadmapData && (
+            <button
+              type="button"
+              onClick={handleReset}
+              className="px-4 py-2 font-bold text-white transition-transform duration-300 bg-gray-700 rounded-lg hover:scale-105"
+            >
+              Reset
+            </button>
+          )}
+        </div>
+      </form>
 
-        {loading && (
-          <p className="text-white">
-            Please wait while we generate your roadmap...
-          </p>
-        )}
-        {roadmapData && <TreeDiagram data={roadmapData} />}
-      </div>
+      {loading && (
+        <p className="text-white">
+          Please wait while we generate your roadmap...
+        </p>
+      )}
+      {roadmapData && <TreeDiagram data={roadmapData} />}
+     
+
+
+        {/* Faq */}
+        <div className="mt-10">
+          <div>
+            <h2 className="text-white text-2xl font-bold">Frequently Asked Questions</h2>
+          </div>
+
+  <Accordion
+    type="single"
+    collapsible
+    className="w-full max-w-3xl mx-auto text-left"
+  >
+    <AccordionItem value="item-1">
+      <AccordionTrigger>What is the Education Section?</AccordionTrigger>
+      <AccordionContent>
+        <p className="text-white">
+          The{" "}
+          <span className="font-semibold text-white">
+            Education Section
+          </span>{" "}
+          provides comprehensive guidance to help you navigate your educational
+          journey. Whether you're seeking to explore career paths or refine your
+          academic focus, our tools are designed to support you in making
+          informed decisions.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="item-2">
+      <AccordionTrigger>How Does the Career Suggestor Work?</AccordionTrigger>
+      <AccordionContent>
+        <p className="text-zinc-400">
+          The{" "}
+          <span className="font-semibold">
+            Career Suggestor
+          </span>{" "}
+          helps you discover potential career paths tailored to your interests
+          and existing knowledge. Input your details to receive personalized
+          career suggestions that align with your aspirations.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
+
+    <AccordionItem value="item-3">
+      <AccordionTrigger>What is the Educational Roadmap Maker?</AccordionTrigger>
+      <AccordionContent>
+        <p className="text-zinc-400">
+          The{" "}
+          <span className="font-semibold">Educational Roadmap Maker</span> is a
+          tool to assist you in planning your educational journey. It helps you
+          map out your academic goals and strategies based on your career
+          objectives and interests.
+        </p>
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+</div>
+
     </div>
   );
 };
